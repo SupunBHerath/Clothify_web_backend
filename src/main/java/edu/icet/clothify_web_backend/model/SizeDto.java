@@ -8,5 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SizeDto {
-    private String size;
+    private String name;
+    private int qty;
+    private double price;
+
 }

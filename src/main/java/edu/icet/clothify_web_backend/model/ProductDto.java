@@ -17,13 +17,15 @@ public class ProductDto {
     private Integer id;
     private String name;
     private String description;
-    private double price;
-    private int qty;
+    private String subCategory;
     private List<ImageDto> images;
     private List<SizeDto> sizes;
     private String category;
     private boolean isNew;
     private String status;
+
+
+
 
 
 }

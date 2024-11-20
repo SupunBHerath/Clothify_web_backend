@@ -15,6 +15,8 @@ public class SizeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String size;
+    private String name;
+    private int qty;
+    private double price;
 
 }
