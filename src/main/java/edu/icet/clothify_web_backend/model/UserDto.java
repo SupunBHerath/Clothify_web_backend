@@ -11,8 +11,6 @@ public class UserDto {
     private Integer id;
     private String name;
     private String email;
-    private String role;
-    private String jwtToken;
-
-
+    private String billingAddress;
+    private String phoneNumber;
 }

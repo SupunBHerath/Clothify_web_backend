@@ -25,6 +25,12 @@ public class OrderEntity {
     @Column(nullable = false)
     private String date;
 
+    @Column(nullable = false)
+    private String billingAddress;
+
+    @Column(nullable = false)
+    private String phoneNumber;
+
     @Column(nullable = false, length = 50)
     private String status;
 

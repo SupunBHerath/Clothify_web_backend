@@ -10,4 +10,5 @@ public interface OrderService {
      OrderDto getOrdersById(int id );
     List<OrderDto> getAllOrders();
     List<OrderDto> getAllOrdersByCusId(int id);
+    boolean updateStatusById(int id , String status);
 }

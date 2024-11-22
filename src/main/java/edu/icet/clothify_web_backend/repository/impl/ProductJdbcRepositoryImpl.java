@@ -39,7 +39,7 @@ public class ProductJdbcRepositoryImpl  implements ProductJdbcRepository {
         FROM products p
         JOIN (
             SELECT product_id
-            FROM orders
+            FROM order_details
             GROUP BY product_id
             ORDER BY COUNT(product_id) DESC
             LIMIT 4

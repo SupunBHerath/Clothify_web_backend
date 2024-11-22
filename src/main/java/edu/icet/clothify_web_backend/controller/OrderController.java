@@ -34,4 +34,9 @@ public class OrderController {
     public List<OrderDto> getAllOrders() {
         return orderService.getAllOrders();
     }
+
+    @PostMapping("update/{id}/{status}")
+    public boolean updateStatusById(@PathVariable int id, @PathVariable String status) {
+        return orderService.updateStatusById(id, status);
+    }
 }

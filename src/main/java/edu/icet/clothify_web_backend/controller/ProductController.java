@@ -22,6 +22,11 @@ public class ProductController {
         return prodcutService.saveProduct(productDto);
     }
 
+    @PostMapping("/update/{id}")
+    public boolean updateProduct(@PathVariable int id, @RequestBody ProductDto productDto) {
+        return prodcutService.updateProduct(id, productDto);
+    }
+
     @GetMapping
     public List<ProductDto> getAllProduct() {
         return prodcutService.getAllProduct();

@@ -15,8 +15,4 @@ public class OrderDetailsDto {
     private double price;
     private int qty;
 
-    private  String phoneNumber;
-    private String cusAddress;
-    private String postalCode;
-
 }

@@ -3,6 +3,7 @@ package edu.icet.clothify_web_backend.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.icet.clothify_web_backend.entity.UserEntity;
 import edu.icet.clothify_web_backend.exception.impl.NotFoundException;
+import edu.icet.clothify_web_backend.model.JWTDto;
 import edu.icet.clothify_web_backend.model.User;
 import edu.icet.clothify_web_backend.model.UserDto;
 import edu.icet.clothify_web_backend.repository.UserJdbcRepository;
@@ -38,14 +39,14 @@ public class AuthSeviceImpl implements AuthSevice {
         }
 
         UserEntity userEntity = userJdbcRepository.login(email,password);
-        UserDto userDto = mapper.convertValue(userEntity, UserDto.class);
-        String jwtToken = jwtUtil.generateToken(userEntity.getEmail(),userDto);
-        userDto.setJwtToken(jwtToken);
+        JWTDto jwtDto = mapper.convertValue(userEntity, JWTDto.class);
+        String jwtToken = jwtUtil.generateToken(userEntity.getEmail(),jwtDto);
+        jwtDto.setJwtToken(jwtToken);
 
         return SuccessfulResponsesData.builder()
                 .status("success")
                 .message("Login successful.")
-                .data(userDto)
+                .data(jwtDto)
                 .build();
     }
 

@@ -14,6 +14,8 @@ public class OrderDto {
     private Integer id;
     private Integer cusId;
     private String date;
+    private String billingAddress;
+    private String phoneNumber;
     private String status;
     private List<OrderDetailsDto> orderDetails;
 }

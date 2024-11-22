@@ -20,15 +20,6 @@ public class OrderDetailsEntity {
     private Integer productId;
 
     @Column(nullable = false)
-    private String cusAddress;
-
-    @Column(nullable = false)
-    private String phoneNumber;
-
-    @Column(nullable = false)
-    private String postalCode;
-
-    @Column(nullable = false)
     private String productName;
 
     @Column(nullable = false)
