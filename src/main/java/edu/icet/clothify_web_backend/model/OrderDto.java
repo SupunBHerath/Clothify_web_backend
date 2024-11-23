@@ -15,6 +15,8 @@ public class OrderDto {
     private Integer cusId;
     private String date;
     private String billingAddress;
+    private  String paymentMethod;
+    private String invoiceNumber;
     private String phoneNumber;
     private String status;
     private List<OrderDetailsDto> orderDetails;

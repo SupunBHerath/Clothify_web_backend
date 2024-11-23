@@ -1,6 +1,6 @@
 package edu.icet.clothify_web_backend.repository.impl;
 import edu.icet.clothify_web_backend.entity.UserEntity;
-import edu.icet.clothify_web_backend.exception.impl.NotFoundException;
+import edu.icet.clothify_web_backend.exception.impl.ErrorException;
 import edu.icet.clothify_web_backend.repository.UserJdbcRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -22,18 +22,13 @@ public class UserJdbcRepositoryImpl implements UserJdbcRepository {
         return count != null && count > 0;
     }
 
-    public UserEntity login(String email, String password) {
+    public UserEntity login(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
         List<UserEntity> userList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(UserEntity.class), email);
         if (userList.isEmpty()) {
-            throw new NotFoundException("User not found with email: " + email);
+            throw new ErrorException("User not found  email: " + email);
         }
-
-        UserEntity userEntity = userList.get(0);
-        if (!userEntity.getPassword().equalsIgnoreCase(password)) throw new NotFoundException("Password  is wrong");
-
-
-        return userEntity;
+        return userList.get(0);
     }
 
 }

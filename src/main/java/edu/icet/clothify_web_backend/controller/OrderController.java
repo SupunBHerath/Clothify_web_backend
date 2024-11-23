@@ -1,5 +1,6 @@
 package edu.icet.clothify_web_backend.controller;
 
+import edu.icet.clothify_web_backend.model.OrderCountsDTO;
 import edu.icet.clothify_web_backend.model.OrderDto;
 import edu.icet.clothify_web_backend.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -35,8 +36,25 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
-    @PostMapping("update/{id}/{status}")
+    @PutMapping("/{id}/{status}")
     public boolean updateStatusById(@PathVariable int id, @PathVariable String status) {
         return orderService.updateStatusById(id, status);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteOrderByOderId(@PathVariable int id,  @RequestHeader("Authorization") String authorizationHeader ) {
+        String jwt = authorizationHeader.startsWith("Bearer ")
+                ? authorizationHeader.substring(7)
+                : authorizationHeader;
+        return orderService.deleteOrderById(id, jwt);
+    }
+
+    @GetMapping("/count")
+    public OrderCountsDTO getOrderCounts() {
+        return orderService.getOrderCounts();
+    }
+    @GetMapping("/price")
+   public Double getTotalPrice(){
+        return orderService.getTotalPrice();
     }
 }

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.icet.clothify_web_backend.entity.ImageEntity;
 import edu.icet.clothify_web_backend.entity.ProductEntity;
 import edu.icet.clothify_web_backend.entity.SizeEntity;
-import edu.icet.clothify_web_backend.exception.impl.NotFoundException;
+import edu.icet.clothify_web_backend.exception.impl.ErrorException;
 import edu.icet.clothify_web_backend.model.ImageDto;
 import edu.icet.clothify_web_backend.model.ProductDto;
 import edu.icet.clothify_web_backend.model.SizeDto;
@@ -52,7 +52,7 @@ public class ProductServiceImpl implements ProdcutService {
     @Transactional
     public boolean updateProduct(Integer id, ProductDto productDto) {
         ProductEntity existingProduct = productRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Product not found"));
+                .orElseThrow(() -> new ErrorException("Product not found"));
 
         existingProduct.setName(productDto.getName());
         existingProduct.setDescription(productDto.getDescription());

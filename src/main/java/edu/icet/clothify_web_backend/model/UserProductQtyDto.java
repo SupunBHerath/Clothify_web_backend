@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JWTDto {
-    private Integer id;
+public class UserProductQtyDto {
+    private  String id;
     private String email;
-    private String role;
-    private  String accountStatus;
-    private  String jwtToken;
-
+    private  long qty;
 }

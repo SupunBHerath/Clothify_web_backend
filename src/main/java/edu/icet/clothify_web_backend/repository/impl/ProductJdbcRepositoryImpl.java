@@ -21,7 +21,7 @@ public class ProductJdbcRepositoryImpl  implements ProductJdbcRepository {
     private  final JdbcTemplate jdbcTemplate;
 
     public int updateSizeQty(int qty, int productId, String name) {
-        String sql = "UPDATE sizes SET qty = qty - ? WHERE product_id = ? AND name = ?";
+        String sql = "UPDATE sizes SET qty = qty + ? WHERE product_id = ? AND name = ?";
         return jdbcTemplate.update(sql, qty, productId, name);
     }
 

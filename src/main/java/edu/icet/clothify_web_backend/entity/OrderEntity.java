@@ -31,10 +31,16 @@ public class OrderEntity {
     @Column(nullable = false)
     private String phoneNumber;
 
+    @Column(nullable = false)
+    private  String paymentMethod;
+
+    @Column(nullable = false)
+    private String invoiceNumber;
+
     @Column(nullable = false, length = 50)
     private String status;
 
-    @OneToMany(targetEntity = OrderDetailsEntity.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = OrderDetailsEntity.class, cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "order_id",referencedColumnName = "id")
     private List<OrderDetailsEntity> orderDetails;
 }

@@ -18,4 +18,8 @@ public class UserEntity {
     private  String role;
     private String billingAddress;
     private String phoneNumber;
+    private String city;
+    private String postalCode;
+    private  String accountStatus;
+    private  String  onlineStatus;
 }

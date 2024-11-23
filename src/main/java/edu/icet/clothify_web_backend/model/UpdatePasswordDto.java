@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JWTDto {
-    private Integer id;
-    private String email;
-    private String role;
-    private  String accountStatus;
-    private  String jwtToken;
-
+public class UpdatePasswordDto {
+    private String password;
+    private String oldPassword;
 }

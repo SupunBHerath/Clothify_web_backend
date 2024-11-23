@@ -22,7 +22,7 @@ public class ProductController {
         return prodcutService.saveProduct(productDto);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/{id}")
     public boolean updateProduct(@PathVariable int id, @RequestBody ProductDto productDto) {
         return prodcutService.updateProduct(id, productDto);
     }
