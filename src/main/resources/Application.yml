@@ -4,7 +4,7 @@
 #    url: jdbc:mysql://82.112.249.62:3306/u543552070_Clothify_db?useSSL=false&serverTimezone=UTC
 #    username: u543552070_clothify_user
 #    password: Clothify_user1
-#
+
 #  jpa:
 #    hibernate:
 #      ddl-auto: update
