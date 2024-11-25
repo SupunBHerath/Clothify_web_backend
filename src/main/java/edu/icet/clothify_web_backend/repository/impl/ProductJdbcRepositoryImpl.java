@@ -5,6 +5,7 @@ import edu.icet.clothify_web_backend.model.OrderDto;
 import edu.icet.clothify_web_backend.model.ProductDto;
 import edu.icet.clothify_web_backend.model.SizeDto;
 import edu.icet.clothify_web_backend.repository.ProductJdbcRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -87,6 +88,11 @@ public class ProductJdbcRepositoryImpl  implements ProductJdbcRepository {
             }
             return product;
         });
+    }
+    @Transactional
+    public void deleteNullProductId() {
+        jdbcTemplate.execute("DELETE FROM sizes WHERE product_id IS NULL");
+        jdbcTemplate.execute("DELETE FROM images WHERE product_id IS NULL");
     }
 
 

@@ -3,6 +3,7 @@ package edu.icet.clothify_web_backend.util.impl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -13,7 +14,8 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    private String SECRET_KEY = "secret";
+    @Value("${spring.mail.properties.mail.SECRET_KEY}")
+    private String SECRET_KEY;
 
     public String extractUserEmail(String token) {
         return extractClaim(token, Claims::getSubject);

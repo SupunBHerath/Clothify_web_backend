@@ -10,4 +10,5 @@ public interface ProductJdbcRepository {
     int updateSizeQty(int qty, int productId, String name);
     List<OrderDto> getOrdersById(int id);
     List<ProductDto> getBestSellerProducts();
+    void deleteNullProductId();
 }

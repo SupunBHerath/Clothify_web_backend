@@ -76,6 +76,8 @@ public class ProductServiceImpl implements ProdcutService {
             size.setPrice(sizeDto.getPrice());
             existingProduct.getSizes().add(size);
         }
-        return productRepository.save(existingProduct).getId()>0;
+        Integer Id = productRepository.save(existingProduct).getId();
+        productJdbcRepository.deleteNullProductId();
+        return Id>0;
     }
 }
