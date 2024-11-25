@@ -34,5 +34,6 @@ JwtUtil
 ### VS Code ###
 .vscode/
 /src/main/resources/Application.yml
+/Application.yml
 ### Mac OS ###
 .DS_Store
