@@ -33,6 +33,6 @@ build/
 JwtUtil
 ### VS Code ###
 .vscode/
-
+/src/main/resources
 ### Mac OS ###
 .DS_Store
